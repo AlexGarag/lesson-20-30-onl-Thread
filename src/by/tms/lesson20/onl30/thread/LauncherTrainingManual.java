@@ -76,7 +76,7 @@ public class LauncherTrainingManual {
 //        код чтобы он выводил ожидаемый результат(1,2,3,4,1,2,3,4,1 и тд)
         System.out.println("\n\"Задача 4\"");
         System.out.println("Поток main начинает свою работу");
-        Counter counter = new Counter();
+        Counter counter = new  Counter();
         CounterThread counterThread = new CounterThread(counter);
         Thread thread0 = new Thread(counterThread);
         Thread thread1 = new Thread(counterThread);
