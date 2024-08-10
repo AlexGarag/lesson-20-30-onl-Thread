@@ -1,6 +1,8 @@
 package by.tms.lesson20.onl30.thread;
 
 import by.tms.lesson20.onl30.thread.trainingmanual.Child;
+import by.tms.lesson20.onl30.thread.trainingmanual.Counter;
+import by.tms.lesson20.onl30.thread.trainingmanual.CounterThread;
 import by.tms.lesson20.onl30.thread.trainingmanual.MyRunnable;
 
 public class ExecutorTrainingManual {
@@ -36,13 +38,46 @@ public class ExecutorTrainingManual {
 ////            throw new RuntimeException(e);
 ////        }
 //        System.out.println("Поток main завершает свою работу");
-//        Задача 3:
-//        Переписать предыдущий код используя интерфейс Runnable
-        System.out.println("\n\"Задача 3\"");
+////        Задача 3:
+////        Переписать предыдущий код используя интерфейс Runnable
+//        System.out.println("\n\"Задача 3\"");
+//        System.out.println("Поток main начинает свою работу");
+////        MyRunnable myRunnable = new MyRunnable();
+//        MyRunnable myRunnable = new MyRunnable("myRunnable");
+//        myRunnable.run();
+////        Thread thread = new Thread(myRunnable);
+////        thread.start();
+//        System.out.println("Поток main завершает свою работу");
+
+//        Задача 4:
+//        Создать класс Counter с полем count и методом increase() который увеличивает count на
+//        1. Создать второй класс CounterThread с интерфейсом Runnable, полем Counter и
+//        конструктором, который инициализирует поле Counter. Метод run() должен иметь
+//        следующую логику:
+//        @Override
+//        public void run() {
+//            counter.setCount(1);
+//            for (int i = 0; i < 4; i++) {
+//                System.out.println(counter.getCount());
+//                counter.increase();
+//            }
+//        }
+//        В main методе создать объект Counter. Создать 5 потоков которые будут использовать в
+//        конструкторе объект Counter. Запустить все 5 потоков и посмотреть результат. Исправить
+//        код чтобы он выводил ожидаемый результат(1,2,3,4,1,2,3,4,1 и тд)
+        System.out.println("\n\"Задача 4\"");
         System.out.println("Поток main начинает свою работу");
-//        MyRunnable myRunnable = new MyRunnable();
-        MyRunnable myRunnable = new MyRunnable("myRunnable");
-        myRunnable.run();
+        Counter counter = new Counter();
+        CounterThread counterThread0 = new CounterThread(counter);
+        CounterThread counterThread1 = new CounterThread(counter);
+        CounterThread counterThread2 = new CounterThread(counter);
+        CounterThread counterThread3 = new CounterThread(counter);
+        CounterThread counterThread4 = new CounterThread(counter);
+        counterThread0.run();
+        counterThread1.run();
+        counterThread2.run();
+        counterThread3.run();
+        counterThread4.run();
         System.out.println("Поток main завершает свою работу");
     }
 }
