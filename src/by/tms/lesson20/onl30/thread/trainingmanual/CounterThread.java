@@ -8,7 +8,7 @@ public class CounterThread implements Runnable {
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         counter.setCount(1);
         for (int i = 0; i < 4; i++) {
             System.out.println(counter.getCount());

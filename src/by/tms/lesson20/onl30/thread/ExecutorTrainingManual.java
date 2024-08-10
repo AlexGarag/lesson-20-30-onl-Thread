@@ -1,6 +1,5 @@
 package by.tms.lesson20.onl30.thread;
 
-import by.tms.lesson20.onl30.thread.trainingmanual.Child;
 import by.tms.lesson20.onl30.thread.trainingmanual.Counter;
 import by.tms.lesson20.onl30.thread.trainingmanual.CounterThread;
 import by.tms.lesson20.onl30.thread.trainingmanual.MyRunnable;
@@ -38,15 +37,19 @@ public class ExecutorTrainingManual {
 ////            throw new RuntimeException(e);
 ////        }
 //        System.out.println("Поток main завершает свою работу");
+
 ////        Задача 3:
 ////        Переписать предыдущий код используя интерфейс Runnable
 //        System.out.println("\n\"Задача 3\"");
 //        System.out.println("Поток main начинает свою работу");
-////        MyRunnable myRunnable = new MyRunnable();
-//        MyRunnable myRunnable = new MyRunnable("myRunnable");
-//        myRunnable.run();
-////        Thread thread = new Thread(myRunnable);
-////        thread.start();
+//        MyRunnable myRunnable = new MyRunnable();
+//        Thread thread = new Thread(myRunnable);
+//        thread.start();
+//        try {
+//            thread.join();
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
 //        System.out.println("Поток main завершает свою работу");
 
 //        Задача 4:
@@ -68,16 +71,26 @@ public class ExecutorTrainingManual {
         System.out.println("\n\"Задача 4\"");
         System.out.println("Поток main начинает свою работу");
         Counter counter = new Counter();
-        CounterThread counterThread0 = new CounterThread(counter);
-        CounterThread counterThread1 = new CounterThread(counter);
-        CounterThread counterThread2 = new CounterThread(counter);
-        CounterThread counterThread3 = new CounterThread(counter);
-        CounterThread counterThread4 = new CounterThread(counter);
-        counterThread0.run();
-        counterThread1.run();
-        counterThread2.run();
-        counterThread3.run();
-        counterThread4.run();
+        CounterThread counterThread = new CounterThread(counter);
+        Thread thread0 = new Thread(counterThread);
+        Thread thread1 = new Thread(counterThread);
+        Thread thread2 = new Thread(counterThread);
+        Thread thread3 = new Thread(counterThread);
+        Thread thread4 = new Thread(counterThread);
+        thread0.start();
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+        try {
+            thread0.join();
+            thread1.join();
+            thread2.join();
+            thread3.join();
+            thread4.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Поток main завершает свою работу");
     }
 }
