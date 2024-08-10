@@ -16,6 +16,11 @@ public class LauncherTrainingManual {
         System.out.println("Поток main начинает свою работу");
         Child child = new Child("child");
         child.start();
+        try {
+            child.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Поток main завершает свою работу");
 
 //        Задача 2:
