@@ -13,8 +13,8 @@ public class LauncherHomeWork {
     static final String DATA_ENTRY_SUGGESTION_FOR_ARRAY = "Enter the numbers sequentially. To stop typing, enter any letter";
     static final String MESSAGE_ABOUT_FOUND_MINIMUM = "The minimum value of the array";
     static final String MESSAGE_ABOUT_FOUND_MAXIMUM = "The maximum value of the array";
-    public static String MESSAGE_ABOUT_FOUND_EMPTY_ARRAY = "The array is empty - there is nothing to look for";
-    public static String MESSAGE_FOR_RESULT_SEARCH = "%s: %s\n";
+    public static final String MESSAGE_ABOUT_FOUND_EMPTY_ARRAY = "The array is empty - there is nothing to look for";
+    public static final String MESSAGE_FOR_RESULT_SEARCH = "%s: %s\n";
 
     public static void main(String[] args) {
 //        Задача 1:
