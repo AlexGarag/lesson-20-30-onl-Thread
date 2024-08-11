@@ -43,7 +43,6 @@ public class LauncherHomeWork {
         printResultSearch(MESSAGE_ABOUT_FOUND_MINIMUM, MinValueFinder.getMin().orElse(MESSAGE_ABOUT_FOUND_EMPTY_ARRAY));
         printResultSearch(MESSAGE_ABOUT_FOUND_MAXIMUM, MaxValueFinder.getMax().orElse(MESSAGE_ABOUT_FOUND_EMPTY_ARRAY));
         System.out.println("\"Task 1\" is solved");
-
     }
 
     private static boolean isNotNumber(String stringAsNumber) {
