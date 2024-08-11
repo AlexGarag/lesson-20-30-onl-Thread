@@ -9,6 +9,9 @@ import java.util.Scanner;
 
 public class LauncherHomeWork {
     static final String DATA_ENTRY_SUGGESTION_FOR_ARRAY = "Enter the numbers sequentially. To stop typing, enter any letter";
+    static final String MESSAGE_ABOUT_FOUND_MINIMUM = "The minimum value of the array";
+    static final String MESSAGE_ABOUT_FOUND_MAXIMUM = "The maximum value of the array";
+    public static String MESSAGE_ABOUT_FOUND_EMPTY_ARRAY = "The array is empty - there is nothing to look for";
 
     public static void main(String[] args) {
 //        Задача 1:
@@ -39,6 +42,9 @@ public class LauncherHomeWork {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+// массив может быть пустым, потому возможен NullPointerException
+        printResultSearch(MESSAGE_ABOUT_FOUND_MINIMUM, MinValueFinder.getMin().orElse(MESSAGE_ABOUT_FOUND_EMPTY_ARRAY));
+        printResultSearch(MESSAGE_ABOUT_FOUND_MAXIMUM, MaxValueFinder.getMax().orElse(MESSAGE_ABOUT_FOUND_EMPTY_ARRAY));
         System.out.println("\"Task 1\" is solved");
 
     }
@@ -50,5 +56,9 @@ public class LauncherHomeWork {
             return true;
         }
         return false;
+    }
+
+    private static void printResultSearch(String message, String value) {
+        System.out.printf("%s: %s\n", message, value);
     }
 }
