@@ -12,6 +12,7 @@ public class LauncherHomeWork {
     static final String MESSAGE_ABOUT_FOUND_MINIMUM = "The minimum value of the array";
     static final String MESSAGE_ABOUT_FOUND_MAXIMUM = "The maximum value of the array";
     public static String MESSAGE_ABOUT_FOUND_EMPTY_ARRAY = "The array is empty - there is nothing to look for";
+    public static String MESSAGE_FOR_RESULT_SEARCH = "%s: %s\n";
 
     public static void main(String[] args) {
 //        Задача 1:
@@ -59,6 +60,6 @@ public class LauncherHomeWork {
     }
 
     private static void printResultSearch(String message, String value) {
-        System.out.printf("%s: %s\n", message, value);
+        System.out.printf(MESSAGE_FOR_RESULT_SEARCH, message, value);
     }
 }
