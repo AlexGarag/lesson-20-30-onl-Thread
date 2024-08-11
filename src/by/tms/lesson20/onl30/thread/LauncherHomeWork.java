@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static by.tms.lesson20.onl30.thread.homework.ManagerThreads.*;
+
 public class LauncherHomeWork {
     static final String DATA_ENTRY_SUGGESTION_FOR_ARRAY = "Enter the numbers sequentially. To stop typing, enter any letter";
     static final String MESSAGE_ABOUT_FOUND_MINIMUM = "The minimum value of the array";
@@ -35,14 +37,8 @@ public class LauncherHomeWork {
         Thread threadFindMax = new Thread(findMaxValue);
         MinValueFinder findMinValue = new MinValueFinder(new ArrayList<>(arrayList));
         Thread threadFindMin = new Thread(findMinValue);
-        threadFindMax.start();
-        threadFindMin.start();
-        try {
-            threadFindMax.join();
-            threadFindMin.join();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        startThread(threadFindMax, threadFindMin);
+        joinThread(threadFindMax, threadFindMin);
 // массив может быть пустым, потому возможен NullPointerException
         printResultSearch(MESSAGE_ABOUT_FOUND_MINIMUM, MinValueFinder.getMin().orElse(MESSAGE_ABOUT_FOUND_EMPTY_ARRAY));
         printResultSearch(MESSAGE_ABOUT_FOUND_MAXIMUM, MaxValueFinder.getMax().orElse(MESSAGE_ABOUT_FOUND_EMPTY_ARRAY));
