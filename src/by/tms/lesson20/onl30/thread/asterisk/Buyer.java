@@ -8,13 +8,9 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class Buyer implements Runnable {
     private static int quantityPurchasedItems = 0;
 
-    public Buyer() {
-        Shop shop = new Shop();
-    }
-
-    private static int buyProduct() {
+    private static void buyProduct() {
         sellProduct(); // купить в Магазине
-        return quantityPurchasedItems++;
+        quantityPurchasedItems++;
     }
 
     @Override
@@ -25,8 +21,12 @@ public class Buyer implements Runnable {
             } catch (InterruptedException e) {
                 currentThread().interrupt();
             }
-            System.out.printf(TEMPLATE_MESSAGE, BUYER_MESSAGE, buyProduct(),
-                    QUANTITY_PRODUCT_SHOP, makeReconciliation()); // купить товар, сверить и сообщить
+            int quantityProductInShop = makeReconciliation();
+            if (quantityProductInShop > 0) {
+                buyProduct();   // купить товар,
+            }
+            System.out.printf(TEMPLATE_MESSAGE, BUYER_MESSAGE, quantityPurchasedItems,
+                    QUANTITY_PRODUCT_SHOP, quantityProductInShop); // сверить и сообщить
         }
     }
 }

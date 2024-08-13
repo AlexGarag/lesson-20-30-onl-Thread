@@ -14,6 +14,4 @@ public class Shop {
     public static int makeReconciliation() {
         return quantityProduct;
     }
-
-
 }

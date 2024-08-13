@@ -8,13 +8,9 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class Manufacturer implements Runnable {
     private static int quantityGoodsProduced = 0;
 
-    public Manufacturer() {
-        Shop shop = new Shop();
-    }
-
-    private static int deliverProduct() {
+    private static void deliverProduct() {
         acceptProduct(); // поставить товар в Магазин
-        return quantityGoodsProduced++;
+        quantityGoodsProduced++;
     }
 
     @Override
@@ -25,8 +21,12 @@ public class Manufacturer implements Runnable {
             } catch (InterruptedException e) {
                 currentThread().interrupt();
             }
-            System.out.printf(TEMPLATE_MESSAGE, MANUFACTURER_MESSAGE, deliverProduct(),
-                    QUANTITY_PRODUCT_SHOP, makeReconciliation());
+            int quantityProductInShop = makeReconciliation();
+            if (quantityProductInShop < 3) {
+                deliverProduct();   // поставить товар
+            }
+            System.out.printf(TEMPLATE_MESSAGE, MANUFACTURER_MESSAGE, quantityGoodsProduced,
+                    QUANTITY_PRODUCT_SHOP, quantityProductInShop); // сверить и сообщить
         }
     }
 }
