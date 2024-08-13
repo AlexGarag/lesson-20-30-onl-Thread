@@ -21,12 +21,12 @@ public class Buyer implements Runnable {
             } catch (InterruptedException e) {
                 currentThread().interrupt();
             }
-            int quantityProductInShop = makeReconciliation();
-            if (quantityProductInShop > 0) {
-                buyProduct();   // купить товар,
+            int quantityProductInShop = makeReconciliation();   // свериться по количеству товара в магазине
+            if (quantityProductInShop > 0) {    // и если есть товар, то
+                buyProduct();   // купить его
             }
             System.out.printf(TEMPLATE_MESSAGE, BUYER_MESSAGE, quantityPurchasedItems,
-                    QUANTITY_PRODUCT_SHOP, quantityProductInShop); // сверить и сообщить
+                    QUANTITY_PRODUCT_IN_SHOP, quantityProductInShop); // сообщить результат
         }
     }
 }

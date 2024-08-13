@@ -9,9 +9,10 @@ public class LauncherAsterisk {
     public static final String TEMPLATE_MESSAGE = "%s : %d.\n\t%s : %d.\n";
     public static final String MANUFACTURER_MESSAGE = "The Manufacturer delivered the product to the Shop";
     public static final String BUYER_MESSAGE = "The Buyer bought the product in the Shop";
-    public static final String QUANTITY_PRODUCT_SHOP = "The quantity of product in the Shop";
+    public static final String QUANTITY_PRODUCT_IN_SHOP = "The quantity of product in the Shop";
     public static final int DELIVERY_INTERVAL_PRODUCT_IN_SECOND = 3;
     public static final int DELIVERY_INTERVAL_PURCHASE_IN_SECOND = 4;
+    public static final int MAX_POSSIBLE_QUANTITY_PRODUCT_IN_SHOP = 3;
 
     public static void main(String[] args) {
 //        Имеются сущности Магазин, Производитель, Покупатель. Цель задачи сделать так чтобы

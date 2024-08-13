@@ -21,12 +21,12 @@ public class Manufacturer implements Runnable {
             } catch (InterruptedException e) {
                 currentThread().interrupt();
             }
-            int quantityProductInShop = makeReconciliation();
-            if (quantityProductInShop < 3) {
+            int quantityProductInShop = makeReconciliation();   // свериться по количеству товара в магазине
+            if (quantityProductInShop < MAX_POSSIBLE_QUANTITY_PRODUCT_IN_SHOP) {                // и если товара меньше отведённого лимита
                 deliverProduct();   // поставить товар
             }
             System.out.printf(TEMPLATE_MESSAGE, MANUFACTURER_MESSAGE, quantityGoodsProduced,
-                    QUANTITY_PRODUCT_SHOP, quantityProductInShop); // сверить и сообщить
+                    QUANTITY_PRODUCT_IN_SHOP, quantityProductInShop); // сообщить
         }
     }
 }
