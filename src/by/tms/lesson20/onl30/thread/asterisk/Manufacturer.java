@@ -1,17 +1,11 @@
 package by.tms.lesson20.onl30.thread.asterisk;
 
 import static by.tms.lesson20.onl30.thread.LauncherAsterisk.*;
-import static by.tms.lesson20.onl30.thread.asterisk.Shop.*;
+import static by.tms.lesson20.onl30.thread.asterisk.Store.*;
 import static java.lang.Thread.currentThread;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class Manufacturer implements Runnable {
-    private static int quantityGoodsProduced = 0;
-
-    private static void deliverProduct() {
-        acceptProduct(); // поставить товар в Магазин
-        quantityGoodsProduced++;
-    }
 
     @Override
     public void run() {
@@ -22,11 +16,10 @@ public class Manufacturer implements Runnable {
                 currentThread().interrupt();
             }
             int quantityProductInShop = makeReconciliation();   // свериться по количеству товара в магазине
-            if (quantityProductInShop < MAX_POSSIBLE_QUANTITY_PRODUCT_IN_SHOP) {                // и если товара меньше отведённого лимита
-                deliverProduct();   // поставить товар
+            if (quantityProductInShop < MAX_POSSIBLE_QUANTITY_PRODUCT_IN_STORE) {                // и если товара меньше отведённого лимита
+                acceptProduct();   // поставить товар
             }
-            System.out.printf(TEMPLATE_MESSAGE, MANUFACTURER_MESSAGE, quantityGoodsProduced,
-                    QUANTITY_PRODUCT_IN_SHOP, quantityProductInShop); // сообщить
+            System.out.printf(TEMPLATE_MESSAGE, MANUFACTURER_MESSAGE, QUANTITY_PRODUCT_IN_STORE, quantityProductInShop);
         }
     }
 }

@@ -6,13 +6,13 @@ import by.tms.lesson20.onl30.thread.asterisk.Manufacturer;
 import static by.tms.lesson20.onl30.thread.homework.ManagerThreads.startThread;
 
 public class LauncherAsterisk {
-    public static final String TEMPLATE_MESSAGE = "%s : %d.\n\t%s : %d.\n";
-    public static final String MANUFACTURER_MESSAGE = "The Manufacturer delivered the product to the Shop";
-    public static final String BUYER_MESSAGE = "The Buyer bought the product in the Shop";
-    public static final String QUANTITY_PRODUCT_IN_SHOP = "The quantity of product in the Shop";
-    public static final int DELIVERY_INTERVAL_PRODUCT_IN_SECOND = 3;
+    public static final String TEMPLATE_MESSAGE = "%s.\n\t%s : %d.\n";
+    public static final String MANUFACTURER_MESSAGE = "The Manufacturer delivered the product to the Store";
+    public static final String BUYER_MESSAGE = "The Buyer bought the product in the Store";
+    public static final String QUANTITY_PRODUCT_IN_STORE = "The quantity of product in the Store";
+    public static final int DELIVERY_INTERVAL_PRODUCT_IN_SECOND = 1;
     public static final int DELIVERY_INTERVAL_PURCHASE_IN_SECOND = 4;
-    public static final int MAX_POSSIBLE_QUANTITY_PRODUCT_IN_SHOP = 3;
+    public static final int MAX_POSSIBLE_QUANTITY_PRODUCT_IN_STORE = 5;
 
     public static void main(String[] args) {
 //        Имеются сущности Магазин, Производитель, Покупатель. Цель задачи сделать так чтобы
